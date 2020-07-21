@@ -1,20 +1,18 @@
-def main():
-	test_cases = []
-	with open("test_cases.txt", "r") as f:
-		lines = f.readlines()
+''' bubble sort implementation with arbitary sort function'''
+''' sort func returns selected element, use min for min '''
 
-		for line in lines:
-			test_cases.append(parseInts(line))
-	print('ok')
-	a = test_sorting_algos()
-	a.test()
-	print(test_cases)
-	print([bubble_sort(x, max) for x in test_cases])
-
-# parse str into int array
-def parseInts(s):
-	return list(map(int, s.split(" ")))
-
+def bubble_sort(x):
+	for i in range(0, len(x)):
+		swap = False
+		for j in range(0, len(x)-1):
+			if min(x[j], x[j+1]) == x[j+1]:
+				tmp = x[j]
+				x[j] = x[j+1]
+				x[j+1] = tmp
+				swap = True
+		if not swap:
+			break
+	return x
 
 def bubble_sort(x, sort_func):
 	for i in range(0, len(x)):
@@ -28,5 +26,3 @@ def bubble_sort(x, sort_func):
 		if not swap:
 			break
 	return x
-
-main()

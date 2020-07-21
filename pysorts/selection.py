@@ -1,17 +1,5 @@
-def main():
-	test_cases = []
-	with open("test_cases.txt", "r") as f:
-		lines = f.readlines()
-
-		for line in lines:
-			test_cases.append(parseInts(line))
-	print(test_cases)
-	print([selection_sort(x, max) for x in test_cases])
-
-# parse str into int array
-def parseInts(s):
-	return list(map(int, s.split(" ")))
-
+''' selection sort implementation with arbitrary sort function '''
+''' sort func returns selected element, use min for min '''
 
 def selection_sort(x, sort_func):
 	if(len(x) <= 1):
@@ -32,5 +20,3 @@ def selection_sort(x, sort_func):
 						
 			insert_index += 1
 	return x
-
-main()

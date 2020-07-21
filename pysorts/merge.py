@@ -1,18 +1,6 @@
-def main():
-	test_cases = []
-	with open("test_cases.txt", "r") as f:
-		lines = f.readlines()
-
-		for line in lines:
-			test_cases.append(parseInts(line))
-	print(test_cases)
-	for x in test_cases:
-		merge_sort(x, min, 0, len(x)-1)
-	print(test_cases)
-
-# parse str into int array
-def parseInts(s):
-	return list(map(int, s.split(" ")))
+''' merge sort implementation using arbitrary sort function '''
+''' sort func returns selected element, use min for min '''
+''' for a large project, rewrite using selected sort func to prevent errors with recursion '''
 
 def merge_sort(x, sort_func, left, right):
 	if right > left:
@@ -49,5 +37,3 @@ def merge(x, sort_func, left, mid, right):
 		x[i] = right[right_i]
 		right_i+=1
 		i+=1
-	
-main()

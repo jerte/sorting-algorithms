@@ -1,16 +1,5 @@
-def main():
-    test_cases = []
-    with open("test_cases.txt", "r") as f:
-        lines = f.readlines()
-
-        for line in lines:
-            test_cases.append(parseInts(line))
-    print(test_cases)
-    print([insertion_sort(x, max) for x in test_cases])
-
-# parse str into int array
-def parseInts(s):
-    return list(map(int, s.split(" ")))
+''' insertion sort implementation with arbitary sort function '''
+''' sort func returns selected element, use min for min'''
 
 def insertion_sort(x, sort_func):
 	for i in range(1, len(x)):
@@ -22,6 +11,3 @@ def insertion_sort(x, sort_func):
 		x[j + 1] = key
 
 	return x
-
-
-main()
